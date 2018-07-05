@@ -6,17 +6,26 @@
  * Time: 1:02 AM
  */
 
-namespace App\Http\Controllers\Backend\Office {
+namespace App\Http\Controllers\Backend\Office;
 
-    use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 
-    class OfficeController extends Controller
+class OfficeController extends Controller
+{
+    /**
+     * OfficeController constructor.
+     */
+    public function __construct()
     {
-        public function Index()
-        {
+        $this->middleware('auth');
+    }
 
-            return view('backend.office.index');
-        }
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function Index()
+    {
+        return view('backend.office.index');
     }
 }

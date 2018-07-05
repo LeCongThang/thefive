@@ -10,19 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//Admin routes
 Route::prefix('admin')->group(function () {
     Auth::routes();
-    Route::get('/home','Backend\Office\OfficeController@Index');
-    Route::get('/project','Backend\Office\OfficeController@Index');// List project
-    Route::get('/project/{id}','Backend\Office\OfficeController@findById');// Get project by id
-    Route::post('/project','Backend\Office\OfficeController@createProject');// Create project
-    Route::put('/project/{id}','Backend\Office\OfficeController@updateProject');//Update project
-    Route::delete('/project/{id}','Backend\Office\OfficeController@deleteProject');//Delete project
+    Route::get('/home', 'Backend\Office\OfficeController@Index');
+    Route::get('/project', 'Backend\Project\ProjectController@Index');// List project
+    Route::get('/project/create', 'Backend\Project\CreateProjectController@Create');// Create project
+    Route::post('/project/storage', 'Backend\Project\CreateProjectController@Storage');// Storage project
+    Route::get('/project/edit/{project_id}', 'Backend\Project\UpdateProjectController@Edit');// Create project
+    Route::post('/project/update{project_id}', 'Backend\Project\UpdateProjectController@Update');// Storage project
+    Route::delete('/project/{id}', 'Backend\Project\ProjectController@deleteProject');//Delete project
 });
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Client routes
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/project.html', 'HomeController@index');
+Route::get('/project/{id}-{slug}.html', 'HomeController@index');
+Route::get('/office.html', 'HomeController@index');
+Route::get('/expertise/{id}-{slug}.html', 'HomeController@index');
+Route::get('/expertise.html', 'HomeController@index');
+Route::get('/news.html', 'HomeController@index');
+Route::get('/news/{id}-{slug}.html', 'HomeController@index');
+Route::get('/contact.html', 'HomeController@index');
+Route::post('/contact', 'HomeController@index');
