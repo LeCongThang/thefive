@@ -29,7 +29,7 @@ class CreateProjectController extends Controller
      */
     public function Create()
     {
-        return view('backend.project.create');
+        return view('backend.project.create',['isEdit'=>false]);
     }
 
     /**

@@ -9,10 +9,7 @@
 <script src="{{URL::asset('')}}js/bootstrap.min.js"></script>
 <!-- datepicker -->
 <script src="{{URL::asset('')}}js/bootstrap-datepicker.js"></script>
-<!-- Slimscroll -->
-<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
+<script src="{{URL::asset('')}}js/fileinput.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{URL::asset('')}}js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
